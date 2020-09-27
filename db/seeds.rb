@@ -1,16 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+# This file contains all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
 
 # Seeding Universities
 ['UNIP', 'UNINOVE', 'UNICSUL', 'MACKENZIE', 'MAUÁ', 'FMU'].each do |university|
-  University.create name: university, score: ((0..50).to_a.sample.to_f)/10, logo_url: 'https://picsum.photos/200/200'
+  University.create name: university, score: (0..50).to_a.sample/10.0, logo_url: 'https://picsum.photos/200/200'
 end
 
 # Seeding Campi
@@ -20,7 +15,7 @@ end
 
 #Seeding Courses
 15.times do
-  new_course = Courses.new name: Faker::Educator.subject
+  new_course = Course.new name: Faker::Educator.subject
   new_course.kind = ['Presencial', 'EaD'].sample
   new_course.level = ['Bacharelado', 'Tecnólogo', 'Mestrado', 'Doutorado'].sample
   new_course.shift = new_course.kind == 'EaD' ? 'Virtual' : ['Diurno', 'Vespertino', 'Noturno'].sample
@@ -30,6 +25,19 @@ end
 end
 
 # Seeding offers
-new_offer = Offer.
+30.times do
+  new_offer = Offer.new
+  new_offer.full_price = (400..3000).to_a.sample.to_f
+  new_offer.discount_percentage = (30..70).to_a.sample.to_f
+  new_offer.price_with_discount = new_offer.full_price * (1.0 - new_offer.discount_percentage / 100)
+  new_offer.start_date = ['01/02/2021', '01/08/2021'].sample
+  new_offer.enrollment_semester = '20' << new_offer.start_date[-2] << new_offer.start_date[-1] << '.' << (new_offer.start_date[4] == '8' ? '2' : '1')
+  new_offer.course = Course.all.sample
+  new_offer.university = new_offer.course.university
+  new_offer.campus = new_offer.course.campus
+  new_offer.enabled = [true, false].sample
+  new_offer.save
+end
 
-Faker::UniqueGenerator.clear # Clears used values for all generators
+# Clears used values for all generators
+Faker::UniqueGenerator.clear 

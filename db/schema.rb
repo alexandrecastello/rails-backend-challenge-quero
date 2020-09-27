@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_234508) do
+ActiveRecord::Schema.define(version: 2020_09_27_192628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(version: 2020_09_26_234508) do
   create_table "offers", force: :cascade do |t|
     t.float "full_price"
     t.float "price_with_discount"
+    t.float "discount_percentage"
     t.string "start_date"
     t.string "enrollment_semester"
+    t.boolean "enabled"
     t.bigint "course_id", null: false
     t.bigint "university_id", null: false
     t.bigint "campus_id", null: false
