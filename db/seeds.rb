@@ -24,7 +24,7 @@ end
   new_course.save
 end
 
-# Seeding offers
+# Seeding Offers
 30.times do
   new_offer = Offer.new
   new_offer.full_price = (400..3000).to_a.sample.to_f
@@ -33,8 +33,6 @@ end
   new_offer.start_date = ['01/02/2021', '01/08/2021'].sample
   new_offer.enrollment_semester = new_offer.start_date[-4..-1] << '.' << (new_offer.start_date[4] == '8' ? '2' : '1')
   new_offer.course = Course.all.sample
-  # new_offer.university = new_offer.course.university
-  # new_offer.campus = new_offer.course.campus
   new_offer.enabled = [true, false].sample
   new_offer.save
 end
