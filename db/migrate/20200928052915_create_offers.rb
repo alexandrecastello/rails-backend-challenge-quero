@@ -8,8 +8,6 @@ class CreateOffers < ActiveRecord::Migration[6.0]
       t.string :enrollment_semester
       t.boolean :enabled
       t.references :course, null: false, foreign_key: true
-      t.references :university, null: false, foreign_key: true
-      t.references :campus, null: false, foreign_key: true
 
       t.timestamps
     end

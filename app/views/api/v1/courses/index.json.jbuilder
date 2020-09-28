@@ -7,6 +7,6 @@ json.array! @courses do |course|
   end
   json.campus do
     json.name course.campus.name
-    json.name course.campus.name
+    json.city course.campus.city
   end
 end
