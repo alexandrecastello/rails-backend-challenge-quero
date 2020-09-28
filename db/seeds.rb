@@ -31,10 +31,10 @@ end
   new_offer.discount_percentage = (30..70).to_a.sample.to_f
   new_offer.price_with_discount = new_offer.full_price * (1.0 - new_offer.discount_percentage / 100)
   new_offer.start_date = ['01/02/2021', '01/08/2021'].sample
-  new_offer.enrollment_semester = '20' << new_offer.start_date[-2] << new_offer.start_date[-1] << '.' << (new_offer.start_date[4] == '8' ? '2' : '1')
+  new_offer.enrollment_semester = new_offer.start_date[-4..-1] << '.' << (new_offer.start_date[4] == '8' ? '2' : '1')
   new_offer.course = Course.all.sample
-  new_offer.university = new_offer.course.university
-  new_offer.campus = new_offer.course.campus
+  # new_offer.university = new_offer.course.university
+  # new_offer.campus = new_offer.course.campus
   new_offer.enabled = [true, false].sample
   new_offer.save
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_192628) do
+ActiveRecord::Schema.define(version: 2020_09_28_011955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,9 @@ ActiveRecord::Schema.define(version: 2020_09_27_192628) do
     t.string "enrollment_semester"
     t.boolean "enabled"
     t.bigint "course_id", null: false
-    t.bigint "university_id", null: false
-    t.bigint "campus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["campus_id"], name: "index_offers_on_campus_id"
     t.index ["course_id"], name: "index_offers_on_course_id"
-    t.index ["university_id"], name: "index_offers_on_university_id"
   end
 
   create_table "universities", force: :cascade do |t|
@@ -62,7 +58,5 @@ ActiveRecord::Schema.define(version: 2020_09_27_192628) do
 
   add_foreign_key "courses", "campus", column: "campus_id"
   add_foreign_key "courses", "universities"
-  add_foreign_key "offers", "campus", column: "campus_id"
   add_foreign_key "offers", "courses"
-  add_foreign_key "offers", "universities"
 end
