@@ -124,7 +124,7 @@ GET /api/v1/offers
 Queries podem ser usadas livremente como o exemplo a seguir:
 
 ```
-~/api/v1/offers?course_shift=Virtual&university_name=UNICSUL&order=asc
+https://quero-backend-challenge.herokuapp.com/api/v1/offers?course_shift=Virtual&university_name=UNICSUL&order=asc
 ```
 
 ## Filtros
