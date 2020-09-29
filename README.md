@@ -105,7 +105,7 @@ A estrutura do JSON de cursos é a seguinte:
       }
     }
   }
-```
+
 
 ## Instruções para entrega do projeto
 
