@@ -5,9 +5,9 @@
 - [Quero Backend Development Challenge](#quero-backend-development-challenge)
     - [Intro](#intro)
     - [O Desafio](#desafio)
-    - [API overview](#api-overview)
-    - [Result types](#result-types)
-    - [Resource components](#resource-components)
+    - [A API](#a-api)
+        - [Estrutura para para Courses](#estrutura-para-courses)
+        - [Resource components](#resource-components)
     - [Parameters](#parameters)
     - [Queries](#queries)
     - [Field Queries](#field-queries)
@@ -20,11 +20,11 @@
 
 <!-- /TOC -->
 
-# Intro
+## Intro
 
-Este projeto é a solução do desafiotécnico de desenvolvimento backend proposto pela QueroEducação para o processo seletivo da vaga de Desenvolvedor(a) Full Stack. A solução foi desenvolvida inteiramente por Alexandre Castello (https://github.com/alexandrecastello / https://www.linkedin.com/in/alecastello/)
+Este projeto é a solução do desafio técnico de desenvolvimento backend proposto pela `QueroEducação` para o processo seletivo da vaga de `Desenvolvedor(a) Full Stack`. A solução foi desenvolvida inteiramente por [Alexandre Castello](https://github.com/alexandrecastello)
 
-# O Desafio
+## O Desafio
 
 ```
  ![logo-quero-edu-small](https://user-images.githubusercontent.com/1139813/90247813-c9cfc780-de0d-11ea-9a97-485a7212d9dd.png)
@@ -56,12 +56,44 @@ O Quero Bolsa é um marketplace de bolsas de estudo, que já ajudou milhares de 
 - Testes automatizados
 - Documentação
 
-## Exemplo de Dados
+## Bônus
 
-Você pode visualizar o retorno esperado para o endpoint de ofertas no arquivo [db.json](db.json), anexo a este desafio.
+- Implementar autenticação da API usando JWT
+- Implementar cache nos endpoints
+- Disponilizar sua aplicação online utilizando um serviço de sua preferência, como Heroku ou AWS, por exemplo
 
-A estrutura do JSON de ofertas é a seguinte:
+```
 
+## A API
+
+Esta API retorna seus resultados no formato JSON. Ela tem duas estruturas de respostas: um para courses e outro para offers. 
+
+
+### Estrutura para para `Courses`
+
+```
+  {
+    "course": {
+      "name": string,
+      "kind": string,
+      "level": string,
+      "shift": string
+      "university": {
+        "name": string,
+        "score": float,
+        "logo_url": string
+      },
+      "campus": {
+        "name": string,
+        "city": string
+      }
+    }
+  }
+```
+
+### Estrutura para para `Offers`
+
+```
   {
     "full_price": float,
     "price_with_discount": float,
@@ -85,38 +117,51 @@ A estrutura do JSON de ofertas é a seguinte:
       "city": string
     }
   }
+```
 
-A estrutura do JSON de cursos é a seguinte:
+## Endpoints Routes
 
-  {
-    "course": {
-      "name": string,
-      "kind": string,
-      "level": string,
-      "shift": string
-      "university": {
-        "name": string,
-        "score": float,
-        "logo_url": string
-      },
-      "campus": {
-        "name": string,
-        "city": string
-      }
-    }
-  }
+Endpoints para `Courses`
+```
+GET /api/v1/courses
+```
 
+Endpoints para `Offers`
+```
+GET /api/v1/offers
+```
 
-## Instruções para entrega do projeto
+## Query
 
-* Desenvolva e versione esse projeto utilizado git.
-* Utilize o serviço de hospedagem de código de sua preferência: github, bitbucket, gitlab ou outro.
-* Crie um README com instruções claras sobre como executar seu projeto.
-
-## Bônus
-
-- Implementar autenticação da API usando JWT
-- Implementar cache nos endpoints
-- Disponilizar sua aplicação online utilizando um serviço de sua preferência, como Heroku ou AWS, por exemplo
+Queries podem ser usadas livremente como o exemplo a seguir:
 
 ```
+~/api/vi/offers?course_shift=Virtual&university_name=UNICSUL
+```
+
+## Filtros
+
+Os filtros a seguir são suportados pela rota `/courses`:
+
+| filter     | possible values | description|
+|:-----------|:----------------|:-----------|
+| `course_level` | `{string}`| metadata which includes `{string}` |
+| `course_kind` | `{string}`| metadata which includes `{string}` |
+| `course_shift` | `{string}`| metadata which includes `{string}` |
+| `university_name` | `{string}`| metadata which includes `{string}` |
+
+
+Os filtros a seguir são suportados pela rota `/offers`:
+
+| filter     | possible values | description|
+|:-----------|:----------------|:-----------|
+| `course_name` | `{string}`| metadata which includes `{string}` |
+| `course_level` | `{string}`| metadata which includes `{string}` |
+| `course_kind` | `{string}`| metadata which includes `{string}` |
+| `course_shift` | `{string}`| metadata which includes `{string}` |
+| `university_name` | `{string}`| metadata which includes `{string}` |
+| `campus_city` | `{string}`| metadata which includes `{string}` |
+
+## Ordenação
+
+
