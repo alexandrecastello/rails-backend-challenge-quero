@@ -6,8 +6,6 @@
     - [Intro](#intro)
     - [O Desafio](#desafio)
     - [A API](#a-api)
-        - [Estrutura para Courses](#estrutura-para-courses)
-        - [Estrutura para Offers](#estrutura-para-offers)
     - [Endpoints Routes](#endpoints-routes)
     - [Queries](#queries)
     - [Filtros](#filtros)
