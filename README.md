@@ -124,7 +124,7 @@ GET /api/v1/offers
 Queries podem ser usadas livremente como o exemplo a seguir:
 
 ```
-~/api/vi/offers?course_shift=Virtual&university_name=UNICSUL&order=asc
+~/api/v1/offers?course_shift=Virtual&university_name=UNICSUL&order=asc
 ```
 
 ## Filtros
