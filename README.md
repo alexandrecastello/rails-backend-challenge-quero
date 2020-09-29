@@ -10,13 +10,8 @@
         - [Resource components](#resource-components)
     - [Endpoints Routes](#endpoints-routes)
     - [Queries](#queries)
-    - [Field Queries](#field-queries)
-    - [Sorting](#sorting)
-    - [Facet counts](#facet-counts)
-    - [Filter names](#filter-names)
-    - [Result controls](#result-controls)
-    - [API versioning](#api-versioning)
-    - [Documentation history](#documentation-history)
+    - [Filtros](#filtros)
+    - [Ordenação](#ordenação)
 
 <!-- /TOC -->
 
@@ -119,7 +114,7 @@ Endpoints para `Offers`
 GET /api/v1/offers
 ```
 
-## Query
+## Queries
 
 Queries podem ser usadas livremente como o exemplo a seguir:
 
