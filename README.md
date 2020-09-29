@@ -61,7 +61,7 @@ O Quero Bolsa é um marketplace de bolsas de estudo, que já ajudou milhares de 
 Você pode visualizar o retorno esperado para o endpoint de ofertas no arquivo [db.json](db.json), anexo a este desafio.
 
 A estrutura do JSON de ofertas é a seguinte:
-```
+
   {
     "full_price": float,
     "price_with_discount": float,
@@ -85,10 +85,9 @@ A estrutura do JSON de ofertas é a seguinte:
       "city": string
     }
   }
-```
+
 A estrutura do JSON de cursos é a seguinte:
 
-```
   {
     "course": {
       "name": string,
