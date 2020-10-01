@@ -1,4 +1,4 @@
-# Quero Backend Development Challenge 
+# Quero Educação Backend Development Challenge 
 
 
 <!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:1 orderedList:0 -->
